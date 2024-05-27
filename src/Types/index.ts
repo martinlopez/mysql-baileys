@@ -23,6 +23,7 @@ export type MySQLConfig = {
 	user: string
 	password: string
 	database: string
+	port: number | undefined
 	tableName: string | undefined
 	keepAliveIntervalMs: number | undefined
 	retryRequestDelayMs: number | undefined

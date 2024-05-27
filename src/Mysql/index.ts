@@ -15,6 +15,7 @@ import { MySQLConfig, sqlData, sqlConnection, AuthenticationCreds } from '../Typ
  * @param {string} retryRequestDelayMs - Retry the query at each interval if it fails, by default 200ms
  * @param {string} maxtRetries - Maximum attempts if the query fails, by default 10
  * @param {string} session - Session name to identify the connection, allowing multisessions with mysql
+ * @param {number} port - PORT for the connection
  */
 
 let conn: sqlConnection
@@ -34,6 +35,7 @@ async function connection(config: MySQLConfig, force: true | false = false){
 			host: config?.host || 'localhost',
 			user: config?.user || 'root',
 			password: config.password || 'Password123#',
+			port: config.port || 3306,
 			database: config.database || 'base',
 			ssl: config?.ssl
 		}).catch((e) => {
